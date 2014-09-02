@@ -5,7 +5,8 @@ Custom components using Polymer
 
 This is repo for creating custom components using http://www.polymer-project.org
 
-Brief overview:
+Brief overview
+==============
 
 The first set of custom components comprises of tile components
 In order to use the component perform the below steps:
