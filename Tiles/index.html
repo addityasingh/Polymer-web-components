@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title> Polymer </title>
+		<script type='text/javascript' src='js/platform.js' ></script>
+		<link rel='import' href='elements/x-tile/x-tile.html'>
+		<link rel='import' href='elements/x-tile-flip/x-tile-flip.html'>
+		<link rel='stylesheet' href='css/styles.css'>
+	</head>
+	<body>
+		<h1>Static tiles </h1>
+		<div class="page"> 
+			<div class="row"> 
+				<x-tile size='large' bgColor="goldenrod" text="Tile large"></x-tile>
+				<x-tile size='small' bgColor="steel-blue" text="Tile small" textPosition='right'></x-tile>
+				<x-tile size='small' bgColor="sea-green" text="Tile small"></x-tile>
+				<x-tile size='small' bgColor="dark-red" text="Tile small"></x-tile>
+				<x-tile size='large' bgColor="sea-green" text="Tile large"></x-tile>
+			</div>	
+		</div>
+		
+		<h1> Flipping tiles </h1>
+		<div class="page"> 
+			<div class="row"> 
+				<x-tile-flip></x-tile-flip>
+			</div>
+		</div>
+		
+		<script type='text/javascript' src='js/index.js' ></script>
+	</body>
+</html>

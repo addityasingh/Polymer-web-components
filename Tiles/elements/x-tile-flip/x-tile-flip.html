@@ -1,0 +1,90 @@
+<link rel='import' href='../../polymer/polymer.html'>
+<link rel='import' href='../x-tile/x-tile.html'>
+
+<polymer-element name='x-tile-flip'>
+	
+	<template>
+		<link rel='stylesheet' href='x-tile-flip.css'>
+		<div id='tileFlip'>
+			<div id ='flip-container'>
+				<div id='flip-panel'>
+					<template repeat='{{data, index in dataSrc}}'>
+						<x-tile text='{{data.text}}' class='flip-tile'></x-tile>
+					</template>
+				</div>
+			</div>
+		</div>
+	</template>
+	<script>
+		var flipTile = {
+			publish: {
+				/**
+				* The array with data source for flipping tiles
+				*
+				* @attribute dataSrc
+				* @type Array
+				* @default []
+				*/
+				dataSrc: [],
+				
+				/**
+				* The class for background color for the tile
+				*
+				* @attribute text
+				* @type string
+				* @default 'medium-purple'
+				*/
+				bgColor: 'medium-purple',
+				
+				/**
+				* The duration for flip of tile
+				*
+				* @attribute delay
+				* @type integer
+				* @default 3000
+				*/
+				delay: 3000
+			}
+		};
+			
+		flipTile.ready = function(){
+			flipTile.dataSrc = [
+				{ text: 'Tile 1 '},
+				{ text: 'Tile 2!'},
+				{ text: 'Tile 3!'}
+			];
+		},
+		
+		flipTile.attached = function(){
+			flipTile.length = flipTile.dataSrc.length,
+			flipTile.current = 1,
+			flipTile.width = 100;
+			flipTile.height = 100;
+			flipTile.panelStyles = this.$["flip-panel"].style;
+			
+			// Flip the tiles at interval of 3 seconds
+			setInterval(flipTile.flip, flipTile.delay);
+		},
+		
+		flipTile.flip = function(){
+			if (flipTile.current < flipTile.length) {
+				flipTile.current = flipTile.current + 1;
+			} else {
+				flipTile.current = 1;
+			}
+			flipTile.run();
+		},
+			
+		flipTile.run = function(){
+			var targetWidth = (0 - flipTile.width) * (flipTile.current - 1) + 'px';
+				targetHeight = (0 - flipTile.height) * (flipTile.current - 1) + 'px';			
+			
+			// Change the position with animation to provide flip effect
+			flipTile.panelStyles.marginLeft = targetWidth;
+			flipTile.panelStyles.transition = 'all 1s ease';
+			flipTile.panelStyles.WebKitTransition = 'all 1s ease';
+		};
+				
+		Polymer('x-tile-flip', flipTile);
+	</script>
+</polymer-element>

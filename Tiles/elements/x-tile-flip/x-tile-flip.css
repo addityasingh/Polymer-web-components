@@ -1,0 +1,43 @@
+/*START: : Tile animation styles*/
+#flip-container {
+    background: #EEE;
+    width: 100px;
+	height: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+#flip-panel {
+	width: 10000px;
+	height: 600px;
+	position: static;
+}
+
+.flip-tile {
+	width: 100px;
+	float: left;
+}
+
+/*END: : Tile animation styles*/
+
+/*START: : Tile color specific styles*/
+.goldenrod{ 
+	background:#DAA520; 
+} 
+
+.dark-red{ 
+	background:#CD0000; 
+} 
+
+.steel-blue{ 
+	background:#4682B4; 
+} 
+
+.sea-green{ 
+	background-color: #2E8B57; 
+} 
+
+.medium-purple{
+	background-color: #9370db;
+}
+/*END: : Tile color specific styles*/

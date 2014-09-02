@@ -1,0 +1,15 @@
+body{ 
+	font-family: 'Segoe UI'; 
+	padding:20px; 
+}
+.page{ 
+	width:auto; 
+	height:auto; 
+} 
+
+.row{ 
+	width:auto; 
+	padding:5px; 
+	height:auto; 
+	display:table; 
+}

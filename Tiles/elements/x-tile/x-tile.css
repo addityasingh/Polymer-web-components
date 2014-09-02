@@ -1,0 +1,68 @@
+/*START: Tile size specific styles*/
+.tile-small{ 
+	height:100px; 
+	width:100px; 
+	float:left; 
+	margin:0 5px 0 0; 
+	padding:2px; 
+} 
+
+.tile-large{ 
+	height:100px; 
+	float:left; 
+	margin:0 5px 0 0; 
+	padding:2px; 
+	width:210px; 
+}
+
+.tile-small:hover, .tile-large:hover{
+	cursor: pointer;
+}
+
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    color:white;
+}
+
+.overlay:hover{
+	background-color:rgba(0, 0, 0, 0.5);
+	background-repeat: no-repeat;
+	background-position: center center;
+    z-index:10;
+}
+
+/*END: Tile size specific styles*/
+
+/*START: : Tile color specific styles*/
+.goldenrod{ 
+	background:#DAA520; 
+} 
+
+.dark-red{ 
+	background:#CD0000; 
+} 
+
+.steel-blue{ 
+	background:#4682B4; 
+} 
+
+.sea-green{ 
+	background-color: #2E8B57; 
+} 
+
+.medium-purple{
+	background-color: #9370db;
+}
+/*END: : Tile color specific styles*/
+
+/*START: Tile background*/
+.tile-background-image{
+	width: 100%;
+	height: 80%;
+}
+
+/*END: Tile background*/

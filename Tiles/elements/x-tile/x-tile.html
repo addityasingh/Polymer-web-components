@@ -1,0 +1,137 @@
+<link rel='import'  href='../../polymer/polymer.html'>
+
+<!--@group Core Elements
+
+The `x-tile` element creates tiles with static behavior.
+
+    <x-tile
+		text = "Hello World"
+		bgColor = "goldenrod"
+		size="large"
+		textPosition="left">
+	</x-tile>
+ 
+ 
+ TODO: Update list of attributes and behavior
+ 
+@element x-tile
+@status beta
+-->
+<polymer-element name='x-tile' attributes='text bgColor type size textPosition imgSrc'>
+	<template>
+		<link rel= 'stylesheet' href='x-tile.css'>
+		
+		<div id='tile' class="tile-{{size}} {{bgColor}}" on-click={{tileClickHandler}} on-keyup={{tileClickHandler}} tabindex="1"> 
+			<div id='tileOverlay' class="overlay" ></div>
+			<div id='tileImage' class='tile-background-image'></div>
+			<span id='tileText' textPosition="{{textPosition}}" class="title">{{text}}</span>
+		</div>
+	</template>
+	<script>
+		Polymer('x-tile', {
+			/**
+			 * Fired when a tile is clicked.
+			 * 
+			 * @event tile-click
+			 */
+			 
+			/**
+			* The text to be shown on the tile
+			*
+			* @attribute text
+			* @type string
+			* @default ''
+			*/
+			text: '',
+			
+			/**
+			* The class for background color for the tile
+			*
+			* @attribute text
+			* @type string
+			* @default 'medium-purple'
+			*/
+			bgColor: 'medium-purple',
+			
+			/**
+			* The type of the tile (whether static, flip or other types of tile)
+			*
+			* @attribute type
+			* @type string
+			* @default 'tile'
+			*/
+			type: 'static',
+			
+			/**
+			* The size of the tile (whether small, medium or large tile)
+			*
+			* @attribute size
+			* @type string
+			* @default 'small'
+			*/
+			size: 'small',
+			
+			/**
+			* The position of the tile (left, bottom, right, top)
+			*
+			* @attribute textPosition
+			* @type string
+			* @default 'left'
+			*/
+			textPosition: 'left ',
+			
+			
+			/**
+			* The image to be used for background of the tile 
+			*
+			* @attribute imgSrc
+			* @type string
+			* @default ''
+			*/
+			imgSrc: '',
+			
+			/**
+			* Callback when element is attached to DOM
+			*/
+			attached: function() {
+			  this.setTextPosition();
+			  this.setBackgroundImage();
+			},
+			
+			/**
+			* Click handler for the tile
+			*/
+			tileClickHandler: function(e){
+			
+				if(!!e &&  (e.type === 'click') || ( e.type === 'keyup' && e.keyCode === 13)){
+					this.fire('tile-click');
+				}
+			},
+			
+			/**
+			* Set the position of text on the tile
+			**/
+			setTextPosition: function() {
+							
+				// Set the vertical alignment
+				this.$.tileText.style.display = 'block';
+				this.$.tileText.style.bottom = 2 +'px';
+				//this.$.tileText.style.position = 'absolute';
+				this.$.tile.style.position = 'relative';
+				
+				// Set the left and right alignment
+				this.$.tileText.style.textAlign = this.textPosition;
+			},
+			
+			/**
+			* Set the background image of the tile
+			**/
+			setBackgroundImage: function(){
+				this.$.tileImage.style.backgroundImage = 'url('+this.imgSrc +')';
+				this.$.tileImage.style.backgroundRepeat = 'no-repeat';
+				this.$.tileImage.style.backgroundPosition = '20px 15px';
+			}
+
+		});
+	</script>
+</polymer-element>
